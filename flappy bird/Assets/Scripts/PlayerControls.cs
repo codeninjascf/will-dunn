@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerControls : MonoBehaviour
 {
     [Header("Game Controller Object for controlling the game")]
-   public GameController gameController;
+    public GameController gameController;
     [Header("Default Velocity")]
         public float velocity = 5;
     private Rigidbody2D rb;
@@ -25,13 +25,15 @@ public class PlayerControls : MonoBehaviour
             rb.velocity = Vector2.up * velocity;
         }
     }
-    private void onCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "HighSpike"
-           || collision.gameObject.tag "Low Spike"
-           || collision.gameObject.tag == "Ground")
-        { 
+        Debug.Log("panda cool");
+        if (collision.gameObject.tag == "HighSpike" || collision.gameObject.tag == "LowSpike" || collision.gameObject.tag == "Ground")
+        {
+            Debug.Log("panda cool");
+            GameObject.Find("GameController").GetComponent<GameController>().GameOver();
             Time.timeScale = 0;
+            
         }
     }
 }
