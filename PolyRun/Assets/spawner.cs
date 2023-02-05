@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class spawner : MonoBehaviour
+public class Spawner : MonoBehaviour
 {
     public float objectSpeed = 8f;
     private List<GameObject>_activeObject;

@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro
-using Unity GameManager
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -10,8 +10,8 @@ public class UIManager : MonoBehaviour
 
     public GameObject mainMenu;
     public GameObject GameOverMenu;
-    public TextMeshProUGUI GameOverScore;
-    public TextMeshProUGUI GameOverHighScoreText;
+    public TextMeshProUGUI gameOverScoreText;
+    public TextMeshProUGUI gameOverHighScoreText;
 
     private bool _gameOver;
     private int _highScore;
@@ -22,7 +22,7 @@ public class UIManager : MonoBehaviour
       mainMenu.SetActive(true);
       GameOverMenu.SetActive(false);
       _gameOver = false;
-      _highScore PlayerPrefs.GetInt("Highscore", 0);  
+      _highScore = PlayerPrefs.GetInt("Highscore", 0);  
     }
 
           
@@ -32,9 +32,27 @@ public class UIManager : MonoBehaviour
 
        if (!_gameOver && GameManager.GameOver)
        {
-        _gameOver = true
-        scoreText.gameObject.SetActive(false)
-        GameOverMenu.SetActive(true)
-       } 
+            _gameOver = true;
+        scoreText.gameObject.SetActive(false);
+            GameOverMenu.SetActive(true);
+            if (GameManager.Score > _highScore)
+            {
+                _highScore = GameManager.Score;
+                PlayerPrefs.SetInt("Highscore", _highScore);
+            }
+            gameOverScoreText.text = " High Score:" + _highScore;
+            gameOverHighScoreText.text = " High Score:" + _highScore;
+        }
+        
+    }
+    public void StartGame()
+    {
+        mainMenu.SetActive(false);
+        scoreText.gameObject.SetActive(true);
+        GameManager.StartGame();
+    }
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(0);
     }
 }
