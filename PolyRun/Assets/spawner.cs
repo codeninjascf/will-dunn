@@ -5,9 +5,9 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public float objectSpeed = 8f;
-    private List<GameObject>_activeObjects;
+    public List<GameObject> _activeObjects;
 
-    void start()
+    void Start()
     {
      _activeObjects = new List<GameObject>();
      StartCoroutine(Spawn());
@@ -26,6 +26,7 @@ public class Spawner : MonoBehaviour
     IEnumerator Spawn()
     {
         GameManager.UpdateList(_activeObjects);
+        Debug.Log("Spawn Object");
         GameObject challengeObject = Instantiate(GameManager.GetChallengeObject());
         challengeObject.transform.position = new Vector3(GameManager.ScreenBounds.x, 0);
         _activeObjects.Add(challengeObject);
