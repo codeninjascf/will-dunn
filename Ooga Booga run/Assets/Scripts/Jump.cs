@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Jump : MonoBehaviour
 {
-    public float jump = 4.5f;
+    public float jumpForce = 4.5f;
     public float fallMultiplier = 2.5f;
     public float groundDistanceThreshold = 0.005f;
 
-    public LayerMask whatisGround;
+    public LayerMask whatIsGround;
 
     public GameObject particleTrail;
 
@@ -23,7 +23,7 @@ public class Jump : MonoBehaviour
     void Update()
     {
         _isGrounded = Physics.Raycast(_rigidbody.transform.position, Vector3.down, 
-            groundDistanceThreshold, whatisGround);
+            groundDistanceThreshold, whatIsGround);
         if(_isGrounded && Input.GetButton("Jump"))
         {
             _rigidbody.velocity = Vector3.up * jumpForce;
@@ -31,6 +31,12 @@ public class Jump : MonoBehaviour
         if(_rigidbody.velocity.y < 0)
         {
             _rigidbody.velocity += (fallMultiplier - 1) * Time.deltaTime * Physics.gravity;
+        }
+        particleTrail.SetActive(_isGrounded);
+
+        if (GetComponent<Rigidbody>().position.y < -0.5)
+        {
+            GameManager.GameOver = true;
         }
     }
 }
