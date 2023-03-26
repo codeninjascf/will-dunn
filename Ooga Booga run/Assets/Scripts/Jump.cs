@@ -14,6 +14,11 @@ public class Jump : MonoBehaviour
 
     private bool _isGrounded;
     private Rigidbody _rigidbody;
+
+    public bool GetIsGrounded()
+    {
+        return _isGrounded;
+    }
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
