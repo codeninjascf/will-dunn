@@ -18,13 +18,13 @@ public class Animate : MonoBehaviour
         if (_jump.GetIsGrounded())
         {
             _animator.SetBool("isRunning", true);
-            _animator.SetBool("isRunning", false);
+            _animator.SetBool("isJumping", false);
         }
 
         else
         {
             _animator.SetBool("isRunning", false);
-            _animator.SetBool("isRunning", true);
+            _animator.SetBool("isJumping", true);
         }
     }
 }

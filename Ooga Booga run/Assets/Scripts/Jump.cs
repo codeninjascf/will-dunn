@@ -39,7 +39,7 @@ public class Jump : MonoBehaviour
         }
         particleTrail.SetActive(_isGrounded);
 
-        if (GetComponent<Rigidbody>().position.y < -0.5)
+        if (_rigidbody.position.y < -0.5)
         {
             GameManager.GameOver = true;
         }

@@ -525,6 +525,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
+    gravitySource: 0
     maxNumParticles: 12
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
@@ -3943,6 +3944,7 @@ ParticleSystem:
         m_RotationOrder: 4
     minVertexDistance: 0.2
     textureMode: 0
+    textureScale: {x: 1, y: 1}
     ribbonCount: 1
     shadowBias: 0.5
     worldSpace: 0
@@ -4814,6 +4816,11 @@ GameObject:
   - component: {fileID: 6654732486920064506}
   - component: {fileID: 8622965017823399156}
   - component: {fileID: 8622965017823399159}
+  - component: {fileID: 1963662287}
+  - component: {fileID: 1963662293}
+  - component: {fileID: 1963662294}
+  - component: {fileID: 1963662298}
+  - component: {fileID: 1963662299}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -4838,8 +4845,9 @@ Transform:
   - {fileID: 3831027123569050118}
   - {fileID: 765961425599561044}
   - {fileID: 2402401417312188702}
+  - {fileID: 6358552508198121991}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &6654732486920064506
 Animator:
@@ -4890,6 +4898,79 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.6, y: 4.1, z: 1.5}
   m_Center: {x: 0, y: 2.03, z: 0}
+--- !u!114 &1963662287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 327357498281235091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78c3b2b4e73006949ab66276354b0f4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 4.5
+  fallMultiplier: 2.5
+  groundDistanceThreshold: 0.005
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 8
+  particleTrail: {fileID: 7436676568181991591}
+--- !u!114 &1963662293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 327357498281235091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f206921c61638ed43bdaf5dae31de156, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poof: {fileID: 8399942033283013002}
+--- !u!114 &1963662294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 327357498281235091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d6445b2cc93d194c8b5f1ae98c9174a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 6
+  changeLaneSpeed: 6
+--- !u!114 &1963662298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 327357498281235091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3904d5906bd4d394385b7b795961d926, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1963662299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 327357498281235091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c97556eb4359fed4294ec3057bea3e18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goldenCodeyActivationThreshold: 10
+  goldenCodeyMaterial: {fileID: 2100000, guid: ec728b9f749becb41a6c3d43a491ae88, type: 2}
+  goldenSparkles: {fileID: 6358552508198121990}
 --- !u!1 &338534333658965750
 GameObject:
   m_ObjectHideFlags: 0
@@ -5447,6 +5528,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
+    gravitySource: 0
     maxNumParticles: 12
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
@@ -8865,6 +8947,7 @@ ParticleSystem:
         m_RotationOrder: 4
     minVertexDistance: 0.2
     textureMode: 0
+    textureScale: {x: 1, y: 1}
     ribbonCount: 1
     shadowBias: 0.5
     worldSpace: 0
@@ -10349,6 +10432,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
+    gravitySource: 0
     maxNumParticles: 12
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
@@ -13767,6 +13851,7 @@ ParticleSystem:
         m_RotationOrder: 4
     minVertexDistance: 0.2
     textureMode: 0
+    textureScale: {x: 1, y: 1}
     ribbonCount: 1
     shadowBias: 0.5
     worldSpace: 0
@@ -16107,6 +16192,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
+    gravitySource: 0
     maxNumParticles: 20
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
@@ -19503,6 +19589,7 @@ ParticleSystem:
         m_RotationOrder: 4
     minVertexDistance: 0.2
     textureMode: 0
+    textureScale: {x: 1, y: 1}
     ribbonCount: 1
     shadowBias: 0.5
     worldSpace: 0
@@ -20987,6 +21074,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
+    gravitySource: 0
     maxNumParticles: 12
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
@@ -24405,6 +24493,7 @@ ParticleSystem:
         m_RotationOrder: 4
     minVertexDistance: 0.2
     textureMode: 0
+    textureScale: {x: 1, y: 1}
     ribbonCount: 1
     shadowBias: 0.5
     worldSpace: 0
@@ -25929,6 +26018,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
+    gravitySource: 0
     maxNumParticles: 20
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
@@ -29325,6 +29415,7 @@ ParticleSystem:
         m_RotationOrder: 4
     minVertexDistance: 0.2
     textureMode: 0
+    textureScale: {x: 1, y: 1}
     ribbonCount: 1
     shadowBias: 0.5
     worldSpace: 0
@@ -30935,6 +31026,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
+    gravitySource: 0
     maxNumParticles: 15
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
@@ -34353,6 +34445,7 @@ ParticleSystem:
         m_RotationOrder: 4
     minVertexDistance: 0.2
     textureMode: 0
+    textureScale: {x: 1, y: 1}
     ribbonCount: 1
     shadowBias: 0.5
     worldSpace: 0
@@ -35904,6 +35997,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
+    gravitySource: 0
     maxNumParticles: 25
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
@@ -39322,6 +39416,7 @@ ParticleSystem:
         m_RotationOrder: 4
     minVertexDistance: 0.2
     textureMode: 0
+    textureScale: {x: 1, y: 1}
     ribbonCount: 1
     shadowBias: 0.5
     worldSpace: 0
@@ -41040,6 +41135,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
+    gravitySource: 0
     maxNumParticles: 70
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
@@ -44458,6 +44554,7 @@ ParticleSystem:
         m_RotationOrder: 4
     minVertexDistance: 0.2
     textureMode: 0
+    textureScale: {x: 1, y: 1}
     ribbonCount: 1
     shadowBias: 0.5
     worldSpace: 0
@@ -45384,3 +45481,72 @@ Transform:
   m_Father: {fileID: 4424016218432135739}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &917597741
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 2
+    m_TransformParent: {fileID: 3661523468421947520}
+    m_Modifications:
+    - target: {fileID: 6358552507486051370, guid: 83292fb74ce4c0648b8e21cad2cf2d7c, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6358552507486051370, guid: 83292fb74ce4c0648b8e21cad2cf2d7c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6358552507486051370, guid: 83292fb74ce4c0648b8e21cad2cf2d7c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6358552507486051370, guid: 83292fb74ce4c0648b8e21cad2cf2d7c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6358552507486051370, guid: 83292fb74ce4c0648b8e21cad2cf2d7c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6358552507486051370, guid: 83292fb74ce4c0648b8e21cad2cf2d7c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6358552507486051370, guid: 83292fb74ce4c0648b8e21cad2cf2d7c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6358552507486051370, guid: 83292fb74ce4c0648b8e21cad2cf2d7c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6358552507486051370, guid: 83292fb74ce4c0648b8e21cad2cf2d7c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6358552507486051370, guid: 83292fb74ce4c0648b8e21cad2cf2d7c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6358552507486051370, guid: 83292fb74ce4c0648b8e21cad2cf2d7c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6358552507486051371, guid: 83292fb74ce4c0648b8e21cad2cf2d7c, type: 3}
+      propertyPath: m_Name
+      value: GoldenSparkles
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_AddedGameObjects: []
+  m_SourcePrefab: {fileID: 100100000, guid: 83292fb74ce4c0648b8e21cad2cf2d7c, type: 3}
+--- !u!1 &6358552508198121990 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6358552507486051371, guid: 83292fb74ce4c0648b8e21cad2cf2d7c, type: 3}
+  m_PrefabInstance: {fileID: 917597741}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6358552508198121991 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6358552507486051370, guid: 83292fb74ce4c0648b8e21cad2cf2d7c, type: 3}
+  m_PrefabInstance: {fileID: 917597741}
+  m_PrefabAsset: {fileID: 0}

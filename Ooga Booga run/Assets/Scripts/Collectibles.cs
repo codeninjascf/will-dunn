@@ -15,11 +15,4 @@ public class Collectibles : MonoBehaviour
             poof.Play();
         }
     }
-  
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
