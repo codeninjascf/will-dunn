@@ -117,6 +117,7 @@ GameObject:
   - component: {fileID: 7806210646646317305}
   - component: {fileID: 7806210646646317311}
   - component: {fileID: 778149961907443518}
+  - component: {fileID: -4759694597610421036}
   m_Layer: 0
   m_Name: Crusher3
   m_TagString: Enemy
@@ -173,6 +174,7 @@ PolygonCollider2D:
       - {x: -0.4, y: -0.9}
       - {x: 0.4, y: -0.9}
       - {x: 0.9, y: -0.4}
+  m_UseDelaunayMesh: 0
 --- !u!50 &7806210646646317311
 Rigidbody2D:
   serializedVersion: 4
@@ -207,3 +209,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletDamage: 5
+--- !u!114 &-4759694597610421036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7806210646646317304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be809d42a39db074da93525c95a24839, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 3
+  jumpForce: 6

@@ -133,7 +133,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 781141947717642192, guid: e54bb41ba49fc0b42992c848cd0b5431, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 781141947717642192, guid: e54bb41ba49fc0b42992c848cd0b5431, type: 3}
       propertyPath: m_LocalPosition.x
@@ -192,7 +192,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1275642260215257888, guid: bdde90feb5bfa6647a873f8afee9ed6d, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1275642260215257888, guid: bdde90feb5bfa6647a873f8afee9ed6d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -260,22 +260,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   jumpForce: 10
---- !u!114 &466283810
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 466283803}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69ec385d21f755744aa4bcb38a8646ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletSpeed: 20
-  crosshair: {fileID: 1872281222}
-  bulletStart: {fileID: 507974589}
-  bulletPrefab: {fileID: 106756398545683830, guid: 40b7be0ce11beaa48bd7f0e3d3eaa32b, type: 3}
 --- !u!1 &507974589 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1275642260383887277, guid: bdde90feb5bfa6647a873f8afee9ed6d, type: 3}
@@ -292,6 +276,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -365,6 +350,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69ec385d21f755744aa4bcb38a8646ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletSpeed: 20
+  crosshair: {fileID: 1872281222}
+  bulletStart: {fileID: 507974589}
+  bulletPrefab: {fileID: 106756398545683830, guid: 40b7be0ce11beaa48bd7f0e3d3eaa32b, type: 3}
 --- !u!1 &529818351
 GameObject:
   m_ObjectHideFlags: 0
@@ -514,7 +515,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5826197699148084319, guid: 0aed937636fc54a41a40e44889d90f42, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5826197699148084319, guid: 0aed937636fc54a41a40e44889d90f42, type: 3}
       propertyPath: m_LocalPosition.x
@@ -698,7 +699,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1872281222 stripped
 GameObject:
@@ -2208,7 +2209,7 @@ RectTransform:
   - {fileID: 363383585284489541}
   - {fileID: 363383586438400622}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
