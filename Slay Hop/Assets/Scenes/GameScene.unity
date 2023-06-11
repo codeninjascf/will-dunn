@@ -749,8 +749,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 5
   moveSpeed: 2
-  bubbleEffect: {fileID: 0}
-  deathEffect: {fileID: 0}
+  bubbleEffect: {fileID: 1175138607324940, guid: 2f605420ef7a6f347ad6536fbabb77c9, type: 3}
+  deathEffect: {fileID: 1439540418670790, guid: 8762d1766fac10940b95f53948e871a5, type: 3}
 --- !u!1 &613504777
 GameObject:
   m_ObjectHideFlags: 0
