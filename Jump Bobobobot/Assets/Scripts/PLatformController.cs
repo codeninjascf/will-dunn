@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PLatformController : MonoBehaviour
+public class PlatformController : MonoBehaviour
 {
     public Transform enemySpawner;
     public GameObject[] enemies;
@@ -60,7 +60,7 @@ public class PLatformController : MonoBehaviour
 
             if (GameManager.Instance.gameStarted)
             {
-                GameManager.Instance.currentScore+++;
+                GameManager.Instance.currentScore++;
                 _platformSettings.SetHighScore();
             }
         }
