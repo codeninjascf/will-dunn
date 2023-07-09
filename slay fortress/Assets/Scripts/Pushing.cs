@@ -51,7 +51,7 @@ public class Pushing : MonoBehaviour
         _animator.SetBool("isPushing", false);
         _pushing = false;
 
-        body.velocity = pushDirection
+        body.velocity = pushDirection * pushPower;
     }
 
     
