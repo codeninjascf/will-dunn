@@ -26,7 +26,7 @@ public class Pushing : MonoBehaviour
             {
                 return;
             }
-            
+
 
             _pushing = true;
 
@@ -49,13 +49,6 @@ public class Pushing : MonoBehaviour
     void StopPushing()
     {
         _animator.SetBool("isPushing", false);
-        _pushing = false;
-
-        body.velocity = pushDirection * pushPower;
-    }
-
-    
-
-
-    
+        _pushing = false;   
+    }  
 }

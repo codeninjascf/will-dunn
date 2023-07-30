@@ -14,6 +14,7 @@ public class Teleporter : MonoBehaviour
         {
             completionMenu.SetActive(true);
             other.GetComponent<PlayerController>().Disable();
+            StartCoroutine(NextScene());
             
         }
     }
