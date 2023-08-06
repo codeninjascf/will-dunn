@@ -69,7 +69,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b9a50ebbbb0d9346a516f5c0494afbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enabledObject: {fileID: 0}
+  enabledObject: {fileID: 7408438089862690933}
   disabledObject: {fileID: 7408438090101543315}
   enabledSound: {fileID: 8300000, guid: 5fbbabfb7dd8a5b45a8461acb14b7320, type: 3}
   disabledSound: {fileID: 8300000, guid: 83d07b2fd0a9c254e836b6f0134fc14d, type: 3}

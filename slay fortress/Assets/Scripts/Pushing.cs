@@ -26,24 +26,23 @@ public class Pushing : MonoBehaviour
             {
                 return;
             }
-
+        }
 
             _pushing = true;
 
             Vector3 pushDirection;
 
-            if (Mathf.Abs(hit.moveDirection.x) > Mathf.Abs(hit.moveDirection.z)) ;
+            if (Mathf.Abs(hit.moveDirection.x) > Mathf.Abs(hit.moveDirection.z))
             {
                 pushDirection = new Vector3(hit.moveDirection.x, 0, 0);
             }
-            if (Mathf.Abs(hit.moveDirection.x) > Mathf.Abs(hit.moveDirection.z)) ;
+            else
             {
-                pushDirection = new Vector3(0, 0, hit.moveDirection.z);
+              pushDirection = new Vector3(0, 0, hit.moveDirection.z);  
             }
             body.velocity = pushDirection * pushPower;
 
             _animator.SetBool("isPushing", true);
-        }
     }
     
     void StopPushing()
