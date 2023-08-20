@@ -43,6 +43,8 @@ public class Pushing : MonoBehaviour
             body.velocity = pushDirection * pushPower;
 
             _animator.SetBool("isPushing", true);
+
+        CancelInvoke("StopPushing");
     }
     
     void StopPushing()
