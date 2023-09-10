@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 2048
     height: 1068.8
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Scene
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -68,8 +68,8 @@ MonoBehaviour:
     y: 0
     width: 520
     height: 1018.80005
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -94,8 +94,8 @@ MonoBehaviour:
     y: 0
     width: 368.8
     height: 619.2
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -409,7 +409,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/WorldMaterialsFree/Resource Files/BrushedIron
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -417,16 +417,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/WorldMaterialsFree/Resource Files/BrushedIron
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: C:\Users\Admin\Desktop\will-dunn\slay fortress
+  m_LastProjectPath: C:\Users\PC\Desktop\will-dunn\slay fortress
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: ca060000
-    m_LastClickedID: 1738
-    m_ExpandedIDs: 00000000f20500005e060000
+    scrollPos: {x: 0, y: 105.39996}
+    m_SelectedIDs: c2080000
+    m_LastClickedID: 2242
+    m_ExpandedIDs: 00000000f2050000a60600002607000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -596,7 +596,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 4e9dfdffcea0fdffc2a5fdffb2abfdffc2b9fdff7ec9fdffaac9fdff5efbfdffa4fffdff4c03feff5007feffc41ffeff0867feff6068feffaa68feff386cfeffde6ffeffa479feff188efeffe8a8feff04affeffa2b7fefff6bdfeffeac1feffdcc6feff0ac7feff0acbfefff0cefeff4ed4feff50d8feffa0defeff8212ffff8412ffff1a13ffff3c13ffff3417ffffbe18ffff88910000de910000fc91000024920000aa920000b09200003aaf000000b60000b0b800009ebc0000c0bd0000dcbd0000eebd000096be0000c45b0100fc8201004e8301006283010094830100068401000c84010054e70100cae70100ae4302004e880200a0880200b488020060890200
+      m_ExpandedIDs: 6ea1fdff62b7fdffbad8fdffa0edfdff400efeff4844feffd472feff36fdfeff56fdfeff98fdfeff32fffeff5afffeff7800ffff0008ffff3a10ffff6615ffffb218ffff7ecf000096cf0000d4cf0000f0cf00000ad000001cd000003cd00000aed00000b4d00000bad00000b48c01009a8d0100668e0100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -944,7 +944,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 48, y: 48}
+      snapOffset: {x: 48, y: 10.399963}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: UnityEditor.SceneViewCameraOverlay
@@ -963,9 +963,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 19.862366, y: -339.50983, z: 175.36444}
+    m_Target: {x: -72.363205, y: -458.3034, z: 246.08377}
     speed: 2
-    m_Value: {x: 19.862366, y: -339.50983, z: 175.36444}
+    m_Value: {x: -72.363205, y: -458.3034, z: 246.08377}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1011,20 +1011,20 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.5179651, y: -0.040057637, z: 0.02418703, w: -0.854157}
+    m_Target: {x: 0.5013455, y: -0.08992387, z: 0.052586015, w: 0.85899734}
     speed: 2
-    m_Value: {x: -0.51794916, y: -0.040056404, z: 0.024186287, w: -0.8541307}
+    m_Value: {x: 0.50192153, y: -0.07960668, z: 0.04656447, w: 0.85998213}
   m_Size:
-    m_Target: 205.0523
+    m_Target: 286.6318
     speed: 2
-    m_Value: 205.0523
+    m_Value: 300.13803
   m_Ortho:
     m_Target: 0
     speed: 2
     m_Value: 0
   m_CameraSettings:
-    m_Speed: 0.76061994
-    m_SpeedNormalized: 0.37999997
+    m_Speed: 1.06047
+    m_SpeedNormalized: 0.53
     m_SpeedMin: 0.001
     m_SpeedMax: 2
     m_EasingEnabled: 1
@@ -1161,7 +1161,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 638.2
+    y: 692.8
     width: 1527
     height: 378.60004
   m_SerializedDataModeController:
