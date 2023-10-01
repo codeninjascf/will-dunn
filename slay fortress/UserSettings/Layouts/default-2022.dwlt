@@ -92,10 +92,10 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 368.8
+    width: 270.4
     height: 619.2
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -264,9 +264,9 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 368.8
+    x: 270.4
     y: 0
-    width: 1159.2
+    width: 1257.6
     height: 619.2
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
@@ -297,9 +297,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 368.80002
+    x: 270.4
     y: 73.6
-    width: 1156.3999
+    width: 1255.6
     height: 598.2
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -409,7 +409,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/WorldMaterialsFree/Resource Files/BrushedIron
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -417,16 +417,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/WorldMaterialsFree/Resource Files/BrushedIron
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: C:\Users\PC\Desktop\will-dunn\slay fortress
+  m_LastProjectPath: C:\Users\Lenovo M93p\Documents\GitHub\will-dunn\slay fortress
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 105.39996}
-    m_SelectedIDs: c2080000
-    m_LastClickedID: 2242
-    m_ExpandedIDs: 00000000f2050000a60600002607000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: ca060000
+    m_LastClickedID: 1738
+    m_ExpandedIDs: 00000000f205000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -579,7 +579,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73.6
-    width: 367.8
+    width: 269.4
     height: 598.2
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -593,10 +593,10 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 6ea1fdff62b7fdffbad8fdffa0edfdff400efeff4844feffd472feff36fdfeff56fdfeff98fdfeff32fffeff5afffeff7800ffff0008ffff3a10ffff6615ffffb218ffff7ecf000096cf0000d4cf0000f0cf00000ad000001cd000003cd00000aed00000b4d00000bad00000b48c01009a8d0100668e0100
+      scrollPos: {x: 0, y: 334.8}
+      m_SelectedIDs: 66affdff
+      m_LastClickedID: -151706
+      m_ExpandedIDs: 92aefdffacb0fdff34b4fdff18b8fdff90bcfdff22c0fdff10c5fdffbcd9fdffec4ffefffe50feff8c54feff6462feff48a0feffcca6feff3ab8fefffebafeffc4befeff5cc2feff14c6feff08cbfeff68cefeff26d2feff56d5feffecd9feff22defeff48e2feff78e6feff7cebfeff6eeffeff2cf3feffdcf6feffb4fafeff0afffeffc802ffff4a06ffff400affff340ffffff212ffffbe16ffff0c18ffff4eb500009ab50000acb50000dab50000dcb5000094b60000d01101001c1201002e1201005c1201000c1301006a160100aa160100be160100d0160100e2160100f4160100fe16010000170100ae170100b2170100b8170100ba170100e4360100fe3601002637010042370100683701007c370100a037010038380100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -640,9 +640,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 368.80002
+    x: 270.4
     y: 73.6
-    width: 1157.2
+    width: 1255.6
     height: 598.2
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -963,9 +963,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -72.363205, y: -458.3034, z: 246.08377}
+    m_Target: {x: 2.7657573, y: 2.4471016, z: 5.0644054}
     speed: 2
-    m_Value: {x: -72.363205, y: -458.3034, z: 246.08377}
+    m_Value: {x: 2.7657573, y: 2.4471016, z: 5.0644054}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1011,20 +1011,20 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.5013455, y: -0.08992387, z: 0.052586015, w: 0.85899734}
+    m_Target: {x: -0.5236791, y: -0.43387517, z: 0.3528887, w: -0.64273155}
     speed: 2
-    m_Value: {x: 0.50192153, y: -0.07960668, z: 0.04656447, w: 0.85998213}
+    m_Value: {x: -0.530366, y: -0.43011922, z: 0.35740387, w: -0.6371593}
   m_Size:
-    m_Target: 286.6318
+    m_Target: 17.670313
     speed: 2
-    m_Value: 300.13803
+    m_Value: 16.90939
   m_Ortho:
     m_Target: 0
     speed: 2
     m_Value: 0
   m_CameraSettings:
-    m_Speed: 1.06047
-    m_SpeedNormalized: 0.53
+    m_Speed: 0.001
+    m_SpeedNormalized: 0
     m_SpeedMin: 0.001
     m_SpeedMax: 2
     m_EasingEnabled: 1
@@ -1062,9 +1062,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 368.80002
+    x: 270.4
     y: 73.6
-    width: 1157.2
+    width: 1255.6
     height: 598.2
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -1082,7 +1082,7 @@ MonoBehaviour:
   m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
-  m_TargetSize: {x: 1157.2, y: 577.2}
+  m_TargetSize: {x: 1255.6, y: 577.2}
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -1097,8 +1097,8 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -462.87997
-    m_HBaseRangeMax: 462.87997
+    m_HBaseRangeMin: -502.24
+    m_HBaseRangeMax: 502.24
     m_VBaseRangeMin: -230.88
     m_VBaseRangeMax: 230.88
     m_HAllowExceedBaseRangeMin: 1
@@ -1118,23 +1118,23 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 1157.2
+      width: 1255.6
       height: 577.2
     m_Scale: {x: 1.2875001, y: 1.2874999}
-    m_Translation: {x: 586.01, y: 294}
+    m_Translation: {x: 635.21, y: 294}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -455.15335
+      x: -493.36694
       y: -228.34953
-      width: 898.79596
+      width: 975.22314
       height: 448.31073
     m_MinimalGUI: 1
   m_defaultScale: 1
-  m_LastWindowPixelSize: {x: 1446.5, y: 747.75}
+  m_LastWindowPixelSize: {x: 1569.5, y: 747.75}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
