@@ -286,8 +286,6 @@ GameObject:
   - component: {fileID: 1037137523}
   - component: {fileID: 1037137524}
   - component: {fileID: 1037137522}
-  - component: {fileID: 1037137526}
-  - component: {fileID: 1037137525}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -350,40 +348,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b44c07caab3732e4f9004fd5884efaba, type: 3}
   - {fileID: 21300000, guid: 5c0d930641336454c8b0efa6715b475f, type: 3}
   preFillGrid: 1
---- !u!114 &1037137525
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1037137521}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60f7c7d8b73fd5a4d8650ca62f0c2c87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioManager: {fileID: 0}
-  grid: {fileID: 0}
-  pieceBackground: {fileID: 0}
-  piecePrefab: {fileID: 0}
-  normalPieceSprites: []
-  preFillGrid: 1
---- !u!114 &1037137526
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1037137521}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff0bb158e4d046e5adc58cfe1668907b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  position: {x: 0, y: 0}
-  width: 0
-  height: 0
-  fillTime: 0.1
 --- !u!1001 &1378933120
 PrefabInstance:
   m_ObjectHideFlags: 0
