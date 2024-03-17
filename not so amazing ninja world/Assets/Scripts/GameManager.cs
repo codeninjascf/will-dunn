@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,9 +9,11 @@ public class GameManager : MonoBehaviour
     public float respawnDelay = 1.5f;
     public PlayerController player;
     public CameraFollow cam;
-    public Transform[] checkpoint;
+    public Transform[] checkpoints;
+    public Transform[] collectibles;
 
     private int _currentCheckpoint;
+    private bool[] _collectiblesCollected;
 
     public void KillPlayer()
     {
@@ -35,7 +38,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-     _currentCheckpoint = 0;   
+     _currentCheckpoint = 0;
+        _collectiblesCollected = new bool[3];
     }
 
     public void SetCheckpoint(Transform checkpoint)
@@ -52,5 +56,11 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+    public void GotCollectible(Transform collectible)
+    {
+        int collectibleNumber = Array.IndexOf(collectibles, collectible);
+
+        _collectiblesCollected[collectibleNumber] = true;
     }
 }

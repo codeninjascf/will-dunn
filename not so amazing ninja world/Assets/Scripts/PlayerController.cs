@@ -15,17 +15,22 @@ public class PlayerController : MonoBehaviour
     private bool _enabled;
     private Rigidbody2D _rigidbody;
 
+    private Animator _animator;
+
     // Start is called before the first frame update
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _enabled = true;
+        _animator = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
     {
         if (!_enabled) return;
         float movement = moveSpeed * Input.GetAxisRaw("Horizontal");
+
+        _animator 
 
         _rigidbody.position += movement * Time.deltaTime * Vector2.right;
     }
@@ -58,4 +63,16 @@ public class PlayerController : MonoBehaviour
             gameManager.KillPlayer();
         }
        }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Checkpoint"))
+        {
+            gameManager.SetCheckpoint(other.transform);
+        }
+         else if (other.CompareTag("Collectible"))
+        {
+            gameManager.GotCollectible(other.transform);
+            other.gameObject.SetActive(false);
+        }
+    }
 }
