@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public CameraFollow cam;
     public Transform[] checkpoints;
     public Transform[] collectibles;
+    public GameObject deathParticles;
+
 
     private int _currentCheckpoint;
     private bool[] _collectiblesCollected;
@@ -20,6 +22,11 @@ public class GameManager : MonoBehaviour
         player.Disable();
 
         player.gameObject.SetActive(false);
+
+        GameObject particles = Instantiate(deathParticles, new
+            Vector3(player.transform.position.x, player.transform.position.y),
+            Quaternion.identity);
+        Destroy(particles, 1f);
         StartCoroutine(ResetPlayer()); 
     }
 
