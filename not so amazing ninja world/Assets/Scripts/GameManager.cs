@@ -5,14 +5,15 @@ using System;
 
 public class GameManager : MonoBehaviour
 {
-    
+    public int levelNumber;
     public float respawnDelay = 1.5f;
     public PlayerController player;
     public CameraFollow cam;
     public Transform[] checkpoints;
     public Transform[] collectibles;
     public GameObject deathParticles;
-
+    public GameObject levelCompleteMenu;
+    public RubiesDisplay rubiesDisplay;
 
     private int _currentCheckpoint;
     private bool[] _collectiblesCollected;
@@ -45,8 +46,11 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-     _currentCheckpoint = 0;
+        _currentCheckpoint = 0;
         _collectiblesCollected = new bool[3];
+
+        levelCompleteMenu.SetActive(false);
+        rubiesDisplay.levelNumber = levelNumber;
     }
 
     public void SetCheckpoint(Transform checkpoint)
@@ -70,4 +74,22 @@ public class GameManager : MonoBehaviour
 
         _collectiblesCollected[collectibleNumber] = true;
     }
+    public void ReachedGoal()
+    {
+        player.Disable();
+
+        PlayerPrefs.SetInt("Level" + levelNumber + "_Complete", 1);
+
+        for (int i = 0; i < 3; i++)
+        {
+            if (_collectiblesCollected[i])
+            {
+                PlayerPrefs.SetInt("Level" + levelNumber + "_Gem" +
+                    (i + 1), 1);
+            }
+            levelCompleteMenu.SetActive(true);
+            rubiesDisplay.UpdateRubies();
+        }
+    }
 }
+
