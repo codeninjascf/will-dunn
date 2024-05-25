@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public int levelNumber;
     public float respawnDelay = 1.5f;
+    public string menuSceneName;
+    public string nextLevelName;
     public PlayerController player;
     public CameraFollow cam;
     public Transform[] checkpoints;
@@ -64,6 +67,15 @@ public class GameManager : MonoBehaviour
     }
 
     // Update is called once per frame
+    public void LoadMenu() 
+    {
+         SceneManager.LoadScene(menuSceneName);
+    }
+
+    public void LoadNextLevel() 
+    {
+        SceneManager.LoadScene(nextLevelName);
+    }
     void Update()
     {
         
@@ -88,7 +100,9 @@ public class GameManager : MonoBehaviour
                     (i + 1), 1);
             }
             levelCompleteMenu.SetActive(true);
+            levelCompleteMenu.GetComponent<Animator>().SetTrigger("Activate");
             rubiesDisplay.UpdateRubies();
+            
         }
     }
 }
