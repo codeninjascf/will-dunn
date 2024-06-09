@@ -16,7 +16,26 @@ public class MenuButton : MonoBehaviour
         // Start is called before the first frame update
     void Start()
     {
-        
+       _image = GetComponent<Image>();
+
+       if (previousLevelNumber == 0 || PlayerPrefs.GetInt("Level" + previousLevelNumber + 
+       "_Complete", 0) ==1 ) 
+       {
+           _locked = false;
+           _image.sprite = unlockedSprite;
+       }
+       else
+       {
+           _locked = true;
+           _image.sprite = lockedSprite;
+       }
+    }
+
+    public void OnClick()
+    {
+        if (_locked) return;
+
+        SceneManager.LoadScene(levelName);
     }
 
     // Update is called once per frame
