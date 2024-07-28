@@ -7,8 +7,11 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 5f;
     public float jumpForce = 10f;
     public float groundDistanceThreshold = 0.55f;
+    public float spriteHeight = 1.78f;
 
     public GameManager gameManager;
+
+    private bool _gravityFlipped;
 
     public LayerMask whatIsGround;
     private bool _isGrounded;
@@ -17,12 +20,31 @@ public class PlayerController : MonoBehaviour
 
     private Animator _animator;
 
+    public bool GravityFlipped
+    {
+        get => _gravityFlipped;
+        set
+        {
+            _gravityFlipped= value;
+
+            int multiplier = value ? -1 : 1;
+            _rigidbody.gravityScale = multiplier * Mathf.Abs(_rigidbody.gravityScale);
+            jumpForce = multiplier * Mathf.Abs(_rigidbody.gravityScale);
+
+            Transform body = transform.GetChild(0);
+            body.localScale = new Vector3(1, multiplier, 1);
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _enabled = true;
         _animator = GetComponent<Animator>();
+
+        GravityFlipped = false;
+        _enabled = true;
     }
 
     private void FixedUpdate()
@@ -97,5 +119,14 @@ public class PlayerController : MonoBehaviour
         {
             gameManager.ReachedGoal();
         }
+        else if (other.CompareTag("FlipGravity") && !GravityFlipped)
+        {
+            GravityFlipped = true;
+        }
+        else if (other.CompareTag("RevertGravity") && _gravityFlipped)
+        {
+            GravityFlipped = false;
+        }
+        
     }
 }
