@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
 
             int multiplier = value ? -1 : 1;
             _rigidbody.gravityScale = multiplier * Mathf.Abs(_rigidbody.gravityScale);
-            jumpForce = multiplier * Mathf.Abs(_rigidbody.gravityScale);
+            jumpForce = multiplier * Mathf.Abs(jumpForce);
 
             Transform body = transform.GetChild(0);
             body.localScale = new Vector3(1, multiplier, 1);
@@ -69,18 +69,21 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!_enabled) return;
-       _isGrounded = Physics2D.Raycast(transform.position, Vector2.down,
-       groundDistanceThreshold, whatIsGround);
+        _isGrounded = !GravityFlipped ?
+            Physics2D.Raycast(transform.position, Vector2.down,
+            groundDistanceThreshold, whatIsGround)
+            : Physics2D.Raycast(transform.position, Vector2.up,
+            groundDistanceThreshold + spriteHeight, whatIsGround);
 
        if(_isGrounded &&  Input.GetButtonDown("Jump"))
        {
         _rigidbody.velocity = Vector2.up * jumpForce;
-       }
-        else
-        {
-            _animator.SetBool("Jumping", false);
+            _animator.SetBool("Jumping", true);
         }
+       else
+       {
+        _animator.SetBool("Jumping", false);
+       }
         _animator.SetBool("Falling", !_isGrounded);
 
     }
