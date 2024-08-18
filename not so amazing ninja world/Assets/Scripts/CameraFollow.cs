@@ -9,6 +9,8 @@ public class CameraFollow : MonoBehaviour
     public float smoothingTime = .2f;
     public Vector3 cameraOffset;
     public float deathHeight = -5;
+    public bool heightLimitActive;
+    public float heightLimit = 16;
 
     private bool _following;
     private float _cameraHeight;
@@ -27,7 +29,8 @@ public class CameraFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _following = target.position.y > deathHeight;
+        _following = target.position.y > deathHeight &&
+            (!heightLimitActive || target.position.y < heightLimit);
 
         if(target.gameObject.activeSelf  && target.position.y <= deathHeight 
         - _cameraHeight)
@@ -39,6 +42,12 @@ public class CameraFollow : MonoBehaviour
 
         transform.position = Vector3.SmoothDamp(transform.position, targetPos,
             ref _velocity, smoothingTime);
+
+        if (target.gameObject.activeSelf && target.position.y >= 
+            heightLimit + _cameraHeight && heightLimitActive)
+        {
+            gameManager.KillPlayer();
+        }
     }
     public void ResetView()
     {
