@@ -10,28 +10,38 @@ public class DialogueManager : MonoBehaviour
     public struct Interaction
     {
         public GameObject dialogue;
-        public TextMeshProUGUI
+        public TextMeshProUGUI mainText;
 
-        public int currrentMessage;
+        public int currentMessage;
         public string[] messages;
-
-        public Interaction[] interactions;
-
-        private Interaction _activeInteraction;
     }
+    public Interaction[] interactions;
 
-    void NextMessage
+    private Interaction _activeInteraction;
+    void NextMessage()
     {
         if (_activeInteraction.dialogue == null) return;
 
-        if (_activeInteraction.currrentMessage >= _activeInteraction.messages.Length)
+        if (_activeInteraction.currentMessage >= _activeInteraction.messages.Length)
         {
             _activeInteraction.dialogue.SetActive(false);
             return;
         }
         _activeInteraction.mainText.text =
-            _activeInteraction.messages[_activeInteraction.currrentMessage];
-        _activeInteraction.currrentMessage++;
+            _activeInteraction.messages[_activeInteraction.currentMessage];
+        _activeInteraction.currentMessage++;
+    }
+
+    public void StartInteraction(int interactionNumber)
+    {
+        if (interactionNumber < 0 || interactionNumber >=
+            interactions.Length) return;
+        if(_activeInteraction.dialogue != null)
+        {
+            _activeInteraction.dialogue.SetActive(false);
+        }
+        _activeInteraction.dialogue.SetActive(true);
+        NextMessage();
     }
 
     void Start()
@@ -43,6 +53,9 @@ public class DialogueManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.Return))
+        {
+            NextMessage();
+        }
     }
 }
