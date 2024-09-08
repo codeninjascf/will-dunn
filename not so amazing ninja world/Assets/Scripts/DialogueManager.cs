@@ -18,6 +18,7 @@ public class DialogueManager : MonoBehaviour
     public Interaction[] interactions;
 
     private Interaction _activeInteraction;
+
     void NextMessage()
     {
         if (_activeInteraction.dialogue == null) return;
@@ -40,6 +41,7 @@ public class DialogueManager : MonoBehaviour
         {
             _activeInteraction.dialogue.SetActive(false);
         }
+        _activeInteraction = interactions[interactionNumber];
         _activeInteraction.dialogue.SetActive(true);
         NextMessage();
     }

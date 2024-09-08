@@ -16,6 +16,9 @@ public class DialogueStarter : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (_activated || !other.CompareTag("Player")) return; 
+
+        _activated = true;
+        dialogueManager.StartInteraction(interaction);
     }
 
     // Update is called once per frame
