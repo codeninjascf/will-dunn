@@ -9,13 +9,13 @@ public class EnemyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _rigidbody = GetComponent<Rigidbody2D>();
+        rigidbody = GetComponent<Rigidbody2D>();
     }
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        _rigidbody.velocity = Vector2.zero;
-        _rigidbody.AddForce(jumpForce * Vector2.up, ForceMode2D.Impulse);
+        rigidbody.velocity = Vector2.zero;
+        rigidbody.AddForce(jumpForce * Vector2.up, ForceMode2D.Impulse);
     }
 
     // Update is called once per frame
