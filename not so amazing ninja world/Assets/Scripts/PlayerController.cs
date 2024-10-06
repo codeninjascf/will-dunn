@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     private bool _gravityFlipped;
 
     public LayerMask whatIsGround;
+    public Transform throwPosition;
+    public GameObject shuriken;
     private bool _isGrounded;
     private bool _enabled;
     private Rigidbody2D _rigidbody;
@@ -70,10 +72,19 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         _isGrounded = !GravityFlipped ?
-            Physics2D.Raycast(transform.position, Vector2.down,
-            groundDistanceThreshold, whatIsGround)
-            : Physics2D.Raycast(transform.position, Vector2.up,
-            groundDistanceThreshold + spriteHeight, whatIsGround);
+        Physics2D.Raycast(transform.position, Vector2.down,
+        groundDistanceThreshold, whatIsGround)
+        : Physics2D.Raycast(transform.position, Vector2.up,
+        groundDistanceThreshold + spriteHeight, whatIsGround);
+
+        if(Input.GetButtonDown("Fire1") && gameManager.Shurikens > 0)
+        {
+            GameObject newShuriken = Instantiate(shuriken, throwPosition.position, Quaternion.identity);
+            newShuriken.GetComponent<ShurikenController>().Initialise(
+            (int) transform.localScale.x);
+
+            gameManager.Shurikens--;
+        }
 
        if(_isGrounded &&  Input.GetButtonDown("Jump"))
        {
@@ -91,14 +102,15 @@ public class PlayerController : MonoBehaviour
        {
         _enabled = true;
        }
-      public void Disable()
-       {
-        _enabled = false;
 
-        _animator.SetBool("Moving", false);
-        _animator.SetBool("Jumping", false);
-        _animator.SetBool("Falling", false);
-    }
+      public void Disable()
+        {
+            _enabled = false;
+
+            _animator.SetBool("Moving", false);
+            _animator.SetBool("Jumping", false);
+            _animator.SetBool("Falling", false);
+        }
        void OnCollisionEnter2D(Collision2D other)
        {
         if (other.gameObject.CompareTag("Hazard"))
@@ -106,6 +118,7 @@ public class PlayerController : MonoBehaviour
             gameManager.KillPlayer();
         }
        }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Checkpoint"))

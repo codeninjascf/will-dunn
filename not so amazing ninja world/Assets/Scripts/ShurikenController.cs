@@ -28,4 +28,12 @@ public class ShurikenController : MonoBehaviour
         transform.position += Time.deltaTime * _direction
         * speed * Vector3.right;
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.CompareTag("Hazard") || other.CompareTag("Platform"))
+        {
+            Destroy(gameObject);
+        }
+    }
 }
