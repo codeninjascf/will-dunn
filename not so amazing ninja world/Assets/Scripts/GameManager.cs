@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public GameObject deathParticles;
     public GameObject levelCompleteMenu;
     public RubiesDisplay rubiesDisplay;
+    public GameObject[] shurikenCollectibles;
 
     private int _currentCheckpoint;
     private bool[] _collectiblesCollected;
@@ -67,6 +68,13 @@ public class GameManager : MonoBehaviour
         player.transform.position = spawnPosition;
 
         cam.ResetView();
+
+        Shurikens = 0;
+
+        foreach(GameObject shurikenCollectible in shurikenCollectibles)
+        {
+            shurikenCollectible.SetActive(true);
+        }
     }
     
     // Start is called before the first frame update
@@ -75,7 +83,7 @@ public class GameManager : MonoBehaviour
         _currentCheckpoint = 0;
         _collectiblesCollected = new bool[3];
 
-        Shurikens = 5;
+        Shurikens = 0;
 
         levelCompleteMenu.SetActive(false);
         rubiesDisplay.levelNumber = levelNumber;
