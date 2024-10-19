@@ -131,6 +131,7 @@ public class GameManager : MonoBehaviour
                 PlayerPrefs.SetInt("Level" + levelNumber + "_Gem" +
                     (i + 1), 1);
             }
+
             levelCompleteMenu.SetActive(true);
             levelCompleteMenu.GetComponent<Animator>().SetTrigger("Activate");
             rubiesDisplay.UpdateRubies();
