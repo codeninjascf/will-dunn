@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
     private bool _enabled;
     private Rigidbody2D _rigidbody;
 
+    private AudioManager _audioManager;
+
     private Animator _animator;
 
     public bool GravityFlipped
@@ -44,6 +46,7 @@ public class PlayerController : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         _enabled = true;
         _animator = GetComponent<Animator>();
+        _audioManager = FindObjectOfType<AudioManager>();
 
         GravityFlipped = false;
         _enabled = true;
@@ -65,39 +68,58 @@ public class PlayerController : MonoBehaviour
             transform.localScale = new Vector3(-1, 1, 1);
         }
 
+        if(movement == 0 || !_isGrounded)
+        {
+            _audioManager.StopAudio("PlayerRun");
+        }
+        else
+        {
+            _audioManager.PlayAudio("PlayerRun");
+        }
+
         _rigidbody.position += movement * Time.deltaTime * Vector2.right;
     }
 
     // Update is called once per frame
     void Update()
     {
-        _isGrounded = !GravityFlipped ?
-        Physics2D.Raycast(transform.position, Vector2.down,
-        groundDistanceThreshold, whatIsGround)
-        : Physics2D.Raycast(transform.position, Vector2.up,
-        groundDistanceThreshold + spriteHeight, whatIsGround);
+        bool previouslyGrounded = _isGrounded;
+
+        if(!previouslyGrounded && _isGrounded)
+        {
+            _audioManager.PlayAudio("PlayerLand");
+        }
+
+     _isGrounded = !GravityFlipped ?
+    Physics2D.Raycast(transform.position, Vector2.down,
+    groundDistanceThreshold, whatIsGround)
+    : Physics2D.Raycast(transform.position, Vector2.up,
+    groundDistanceThreshold + spriteHeight, whatIsGround);
 
         if(Input.GetButtonDown("Fire1") && gameManager.Shurikens > 0)
+            {
+                GameObject newShuriken = Instantiate(shuriken, throwPosition.position, Quaternion.identity);
+                newShuriken.GetComponent<ShurikenController>().Initialise(
+                (int) transform.localScale.x);
+
+                gameManager.Shurikens--;
+
+                _audioManager.PlayAudio("ShurikenThrow");
+            }
+
+        if(_isGrounded &&  Input.GetButtonDown("Jump"))
         {
-            GameObject newShuriken = Instantiate(shuriken, throwPosition.position, Quaternion.identity);
-            newShuriken.GetComponent<ShurikenController>().Initialise(
-            (int) transform.localScale.x);
-
-            gameManager.Shurikens--;
-        }
-
-       if(_isGrounded &&  Input.GetButtonDown("Jump"))
-       {
-        _rigidbody.velocity = Vector2.up * jumpForce;
+            _rigidbody.velocity = Vector2.up * jumpForce;
             _animator.SetBool("Jumping", true);
+            _audioManager.PlayAudio("PlayerJump");
         }
-       else
-       {
-        _animator.SetBool("Jumping", false);
-       }
-        _animator.SetBool("Falling", !_isGrounded);
+        else
+        {
+            _animator.SetBool("Jumping", false);
+        }
+            _animator.SetBool("Falling", !_isGrounded);
 
-    }
+        }
         public void Enable()
        {
         _enabled = true;

@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public string menuSceneName;
     public string nextLevelName;
     public bool shurikensEnabled;
+    public string levelMusicName;
 
     public PlayerController player;
     public CameraFollow cam;
@@ -24,6 +25,8 @@ public class GameManager : MonoBehaviour
     private int _currentCheckpoint;
     private bool[] _collectiblesCollected;
     private int _shurikens;
+
+    private AudioManager _audioManager;
 
     public int Shurikens
     {
@@ -39,6 +42,8 @@ public class GameManager : MonoBehaviour
         player.Disable();
 
         player.gameObject.SetActive(false);
+
+        _audioManager.PlayAudio("PlayerDeath");
 
         GameObject particles = Instantiate(deathParticles, new
             Vector3(player.transform.position.x, player.transform.position.y),
@@ -87,6 +92,11 @@ public class GameManager : MonoBehaviour
 
         levelCompleteMenu.SetActive(false);
         rubiesDisplay.levelNumber = levelNumber;
+
+        _audioManager = FindObjectOfType<AudioManager>();
+
+        _audioManager.FindAudio(levelMusicName).loop = true;
+        _audioManager.PlayAudio(levelMusicName);
     }
 
     public void SetCheckpoint(Transform checkpoint)
@@ -96,6 +106,7 @@ public class GameManager : MonoBehaviour
         if(checkpointNumber > _currentCheckpoint)
         {
             _currentCheckpoint = checkpointNumber;
+            _audioManager.PlayAudio("ActivateCheckpoint");
         }
     }
 
@@ -103,10 +114,12 @@ public class GameManager : MonoBehaviour
     public void LoadMenu() 
     {
          SceneManager.LoadScene(menuSceneName);
+         _audioManager.PlayAudio("ButtonClick");
     }
     public void LoadNextLevel() 
     {
         SceneManager.LoadScene(nextLevelName);
+         _audioManager.PlayAudio("ButtonClick");
     }
     void Update()
     {
@@ -117,7 +130,10 @@ public class GameManager : MonoBehaviour
         int collectibleNumber = Array.IndexOf(collectibles, collectible);
 
         _collectiblesCollected[collectibleNumber] = true;
+
+        _audioManager.PlayAudio("GemCollect");
     }
+
     public void ReachedGoal()
     {
         player.Disable();
@@ -131,6 +147,8 @@ public class GameManager : MonoBehaviour
                 PlayerPrefs.SetInt("Level" + levelNumber + "_Gem" +
                     (i + 1), 1);
             }
+
+            _audioManager.PlayAudio("LevelComplete");
 
             levelCompleteMenu.SetActive(true);
             levelCompleteMenu.GetComponent<Animator>().SetTrigger("Activate");
