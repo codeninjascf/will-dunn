@@ -12,7 +12,9 @@ public class MenuButton : MonoBehaviour
     public Sprite unlockedSprite;
     public Sprite lockedSprite;
     private bool _locked;
-    private Image _image; 
+    private Image _image;
+
+    private AudioManager _audioManager;
         // Start is called before the first frame update
     void Start()
     {
@@ -29,11 +31,17 @@ public class MenuButton : MonoBehaviour
            _locked = true;
            _image.sprite = lockedSprite;
        }
+
+        _audioManager = FindObjectOfType<AudioManager>();
+        _audioManager.FindAudio("MenuMusic").loop = true;
+        _audioManager.PlayAudio("MenuMusic");
     }
 
     public void OnClick()
     {
         if (_locked) return;
+
+        _audioManager.PlayAudio("ButtonClick");
 
         SceneManager.LoadScene(levelName);
     }

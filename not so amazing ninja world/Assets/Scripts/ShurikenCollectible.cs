@@ -14,7 +14,7 @@ public class ShurikenCollectible : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             gameManager.Shurikens += collectibleValue;
-            FindObjectOfType<AudioManager>().PlayAudio("ShurikenCollect")
+            FindObjectOfType<AudioManager>().PlayAudio("ShurikenCollect");
             gameObject.SetActive(false);
         }
     }

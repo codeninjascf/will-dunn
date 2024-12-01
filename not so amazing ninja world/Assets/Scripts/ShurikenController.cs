@@ -34,6 +34,7 @@ public class ShurikenController : MonoBehaviour
         if(other.CompareTag("Hazard") || other.CompareTag("Platform"))
         {
             Destroy(gameObject);
+            FindObjectOfType<AudioManager>().PlayAudio("ShurikenBreak");
         }
     }
 }

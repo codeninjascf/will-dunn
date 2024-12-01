@@ -9,6 +9,8 @@ public class EnemyController : MonoBehaviour
     public float currentHealth = 1;
     public float jumpForce = 7f;
 
+    public AudioSource jumpAudio;
+
     public float damage = 1;
 
     private Rigidbody2D  rigidbody;

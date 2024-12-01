@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public string nextLevelName;
     public bool shurikensEnabled;
     public string levelMusicName;
+    public float exitTime = 2f;
 
     public PlayerController player;
     public CameraFollow cam;
@@ -21,10 +22,12 @@ public class GameManager : MonoBehaviour
     public GameObject levelCompleteMenu;
     public RubiesDisplay rubiesDisplay;
     public GameObject[] shurikenCollectibles;
+    public GameObject exitText;
 
     private int _currentCheckpoint;
     private bool[] _collectiblesCollected;
     private int _shurikens;
+    public float _escapeTime;
 
     private AudioManager _audioManager;
 
@@ -97,6 +100,8 @@ public class GameManager : MonoBehaviour
 
         _audioManager.FindAudio(levelMusicName).loop = true;
         _audioManager.PlayAudio(levelMusicName);
+
+        exitText.SetActive(false);
     }
 
     public void SetCheckpoint(Transform checkpoint)
@@ -123,7 +128,22 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
-        
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            exitText.SetActive(true);
+            _escapeTime += Time.deltaTime;
+        }
+
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            exitText.SetActive(false);
+            _escapeTime = 0;
+        }
+
+        if(_escapeTime >= exitTime)
+        {
+            LoadMenu();
+        }
     }
     public void GotCollectible(Transform collectible)
     {
