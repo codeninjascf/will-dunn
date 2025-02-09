@@ -13,6 +13,8 @@ public class NewBehaviourScript : MonoBehaviour
     public float moveSpeed = 8;
     public float jumpForce = 20;
 
+    public Animator anim;
+
     public void Update()
     {
         rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed, rb.velocity.y);
@@ -22,7 +24,19 @@ public class NewBehaviourScript : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
 
+        if(rb.velocity.x < 0)
+        {
+            transform.localScale = new Vector3(-1f, 1f, 1f);
+        }
+        else if(rb.velocity.x > 0)
+        {
+            transform.localScale = Vector3.one;
+        }
+
         onGround = Physics2D.OverlapCircle(groundPoint.position, .2f, whatIsGround);
+
+        anim.SetBool("isOnGround", onGround);
+        anim.SetFloat("speed", Mathf.Abs(rb.velocity.x));
     }
 
 }
