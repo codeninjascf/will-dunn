@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour
     private bool onGround;
     public LayerMask whatIsGround;
 
+    public BulletController shotToFire;
+    public Transform shotPoint;
+
     public float moveSpeed = 8;
     public float jumpForce = 20;
 
@@ -37,6 +40,10 @@ public class PlayerController : MonoBehaviour
 
         anim.SetBool("isOnGround", onGround);
         anim.SetFloat("speed", Mathf.Abs(rb.velocity.x));
-    }
 
+        if(Input.GetButtonDown("Fire1"))
+        {
+            Instantiate(shotToFire, shotPoint.position, shotPoint.rotation).moveDir = new Vector2(transform.localScale.x, 0f);
+        }
+    }
 }
