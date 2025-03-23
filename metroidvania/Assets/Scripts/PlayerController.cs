@@ -39,6 +39,9 @@ public class PlayerController : MonoBehaviour
 
     public Animator ballAnim;
 
+    public Transform bombPoint;
+    public GameObject bomb;
+
     public void Update()
     {
         if (dashRechargeCounter > 0)
@@ -115,8 +118,16 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
-            Instantiate(shotToFire, shotPoint.position, shotPoint.rotation).moveDir = new Vector2(transform.localScale.x, 0f);
-            anim.SetTrigger("shotFired");
+            if(standing.activeSelf)
+            {
+                Instantiate(shotToFire, shotPoint.position, shotPoint.rotation).moveDir = new Vector2(transform.localScale.x, 0f);
+                anim.SetTrigger("shotFired");
+            }
+            else if(ball.activeSelf)
+            {
+                Instantiate(bomb, bombPoint.position, bombPoint.rotation);
+            }
+            
         }
 
         if(!ball.activeSelf)
