@@ -42,6 +42,13 @@ public class PlayerController : MonoBehaviour
     public Transform bombPoint;
     public GameObject bomb;
 
+    private PlayerAbilityTracker abilities;
+
+    private void Start()
+    {
+        abilities = GetComponent<PlayerAbilityTracker>();
+    }
+
     public void Update()
     {
         if (dashRechargeCounter > 0)
@@ -50,7 +57,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            if (Input.GetButtonDown("Fire2") && standing.activeSelf)
+            if (Input.GetButtonDown("Fire2") && standing.activeSelf && abilities.canDash)
             {
                 dashCounter = dashTime;
 
@@ -87,7 +94,7 @@ public class PlayerController : MonoBehaviour
 
         
 
-        if (Input.GetButtonDown("Jump") && (onGround || canDoubleJump))
+        if (Input.GetButtonDown("Jump") && (onGround || canDoubleJump && abilities.canDoubleJump))
         {
             if (onGround)
             {
@@ -123,7 +130,7 @@ public class PlayerController : MonoBehaviour
                 Instantiate(shotToFire, shotPoint.position, shotPoint.rotation).moveDir = new Vector2(transform.localScale.x, 0f);
                 anim.SetTrigger("shotFired");
             }
-            else if(ball.activeSelf)
+            else if(ball.activeSelf && abilities.canDropBomb)
             {
                 Instantiate(bomb, bombPoint.position, bombPoint.rotation);
             }
@@ -132,7 +139,7 @@ public class PlayerController : MonoBehaviour
 
         if(!ball.activeSelf)
         {
-            if(Input.GetAxisRaw("Vertical") < -.9f)
+            if(Input.GetAxisRaw("Vertical") < -.9f && abilities.canBecomeBall)
             {
                 ballCounter -= Time.deltaTime;
                 if(ballCounter <= 0)
