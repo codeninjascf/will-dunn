@@ -7,6 +7,7 @@ public class AbilityUnlock : MonoBehaviour
     public bool unlockDoubleJump, unlockDash, unlockBall, unlockDropBomb;
 
     public GameObject AbilityEffect;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.tag == "Player")
@@ -31,6 +32,12 @@ public class AbilityUnlock : MonoBehaviour
                 player.canDropBomb = true;
             }
 
+            if(AbilityEffect != null)
+            {
+                Instantiate(AbilityEffect, transform.position, Quaternion.identity);
+            }
+
+            Destroy(AbilityEffect);
 
             Destroy(gameObject);
         }
