@@ -16,7 +16,7 @@ public class EnemyFlyingController : MonoBehaviour
     
     public void Update()
     {
-        if(!isChasing)
+        if (!isChasing)
         {
             if (Vector3.Distance(transform.position, player.position) < rangeToStartChase)
             {
@@ -26,7 +26,7 @@ public class EnemyFlyingController : MonoBehaviour
         }
         else
         {
-            if(player.gameObject.activeSelf)
+            if (player.gameObject.activeSelf)
             {
                 Vector3 direction = transform.position - player.position;
                 float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
