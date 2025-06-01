@@ -12,9 +12,13 @@ public class PlayerHealthController : MonoBehaviour
         instance = this;
     }
 
-    [HideInInspector]
+   
     public int maxHealth;
     public int currentHealth;
+
+    public float invincLength, flashLength;
+    private float invincCounter, flashCounter;
+    public SpriteRenderer[] playerSprites;
 
     private void Start()
     {
@@ -22,15 +26,49 @@ public class PlayerHealthController : MonoBehaviour
         UIController.instance.UpdateHealth(currentHealth,maxHealth);
     }
 
-    public void DamagePlayer()
+    void Update()
     {
-        if (currentHealth <=  0) 
+        if(invincCounter > 0 )
         {
-            currentHealth = 0;
-            gameObject.SetActive(false);
-        }
+            invincCounter -= Time.deltaTime;
 
-        UIController.instance.UpdateHealth(currentHealth,maxHealth);
+            flashCounter -= Time.deltaTime;
+
+            if(flashCounter <= 0)
+            {
+                foreach(SpriteRenderer sr in playerSprites)
+                {
+                    sr.enabled = !sr.enabled;
+                }
+                flashCounter = flashLength;
+            }
+
+            if(invincCounter <= 0)
+            {
+                foreach (SpriteRenderer sr in playerSprites)
+                {
+                    sr.enabled = true;
+
+                }
+                flashCounter = 0f;
+            }
+        }
+    }
+
+    public void DamagePlayer(int damageAmount)
+    {
+        if(invincCounter > 0)
+        {
+            currentHealth -= damageAmount;
+
+            if (currentHealth <= 0)
+            {
+                currentHealth = 0;
+                gameObject.SetActive(false);
+            }
+
+            UIController.instance.UpdateHealth(currentHealth, maxHealth);
+        }
     }
 }
 

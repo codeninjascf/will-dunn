@@ -19,7 +19,6 @@ public class UIController : MonoBehaviour
     {
         healthSlider.maxValue = maxHealth;
         healthSlider.value = currentHealth;
-
     }
 
     
