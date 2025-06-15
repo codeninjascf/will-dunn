@@ -9,7 +9,15 @@ public class RespawnController : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     public Vector3 respawnPoint;
@@ -23,7 +31,7 @@ public class RespawnController : MonoBehaviour
 
     public void Respawn()
     {
-        StartCoroutine(RespawnCo())
+        StartCoroutine(RespawnCo());
     }
 
     IEnumerator RespawnCo()
@@ -31,9 +39,15 @@ public class RespawnController : MonoBehaviour
         player.SetActive(false);
         yield return new WaitForSeconds(waitToRespawn);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        player.transform.position
+        player.transform.position = respawnPoint;
+        player.SetActive(true);
+        PlayerHealthController.instance.FillHealth();
     }
 
+    public void SetSpawn(Vector3 newPosition)
+    {
+        respawnPoint = newPosition;
+    }
     // Update is called once per frame
     void Update()
     {

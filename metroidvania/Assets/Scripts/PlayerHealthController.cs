@@ -6,10 +6,19 @@ public class PlayerHealthController : MonoBehaviour
 {
 
     public static PlayerHealthController instance;
+    public GameObject PlayerDeath;
 
     private void Awake()
     {
-        instance = this;
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
    
@@ -24,6 +33,12 @@ public class PlayerHealthController : MonoBehaviour
     {
         currentHealth = maxHealth;
         UIController.instance.UpdateHealth(currentHealth,maxHealth);
+    }
+
+    public void FillHealth()
+    {
+        currentHealth = maxHealth;
+        UIController.instance.UpdateHealth(currentHealth, maxHealth);
     }
 
     void Update()
@@ -57,14 +72,15 @@ public class PlayerHealthController : MonoBehaviour
 
     public void DamagePlayer(int damageAmount)
     {
-        if(invincCounter > 0)
+        if(invincCounter == 0)
         {
             currentHealth -= damageAmount;
 
             if (currentHealth <= 0)
             {
                 currentHealth = 0;
-                gameObject.SetActive(false);
+                Instantiate(PlayerDeath, transform.position, transform.rotation);
+                RespawnController.instance.Respawn();
             }
 
             UIController.instance.UpdateHealth(currentHealth, maxHealth);

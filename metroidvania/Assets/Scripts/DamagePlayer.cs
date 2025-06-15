@@ -12,14 +12,15 @@ public class DamagePlayer : MonoBehaviour
     {
         PlayerHealthController.instance.DamagePlayer(damageAmount);
 
-        if(destroyOnDamage)
+        if (destroyOnDamage)
         {
-            if(destroyEffect != null)
+            if (destroyEffect != null)
             {
                 Instantiate(destroyEffect, transform.position, transform.rotation);
             }
+            Destroy(gameObject);
+            Destroy(destroyEffect);
         }
-        Destroy(gameObject);
        
     }
 
