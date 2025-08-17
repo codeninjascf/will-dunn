@@ -4,12 +4,21 @@ using UnityEngine;
 
 public class DialogueStarter : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public DialogueManager dialogueManager; 
+    public int interaction;
+
+    private bool _activated;
     void Start()
     {
-        
+        _activated = false;
     }
 
+    void OnTriggerEnter2D(Collider2D other)
+    {
+       if(_activated || other.gameObject.tag != "Player") return;
+        _activated = true;
+        dialogueManager.StartInteraction(interaction);
+    }
     // Update is called once per frame
     void Update()
     {
