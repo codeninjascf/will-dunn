@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,7 @@ public class DialogueStarter : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("yes");
        if(_activated || other.gameObject.tag != "Player") return;
         _activated = true;
         dialogueManager.StartInteraction(interaction);
