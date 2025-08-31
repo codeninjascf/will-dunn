@@ -29,6 +29,11 @@ public class BulletController : MonoBehaviour
             Destroy(Instantiate(impactEffect, transform.position, Quaternion.identity),1f);
         }
 
+        if(other.tag == "Boss")
+        {
+            BossHealthController.instance.TakeDamage(damageAmount);
+        }
+
         Destroy(gameObject);
     }
     // Update is called once per frame

@@ -8,7 +8,7 @@ public class DamagePlayer : MonoBehaviour
     public bool destroyOnDamage;
     public GameObject destroyEffect;
 
-    void DealDamage()
+    public void DealDamage()
     {
         PlayerHealthController.instance.DamagePlayer(damageAmount);
 
