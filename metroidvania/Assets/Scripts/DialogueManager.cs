@@ -35,15 +35,22 @@ public class DialogueManager : MonoBehaviour
 
         public void StartInteraction(int interactionNumber)
         {
+        Debug.Log(interactionNumber);
+        Debug.Log(interactions.Length);
+
             if (interactionNumber < 0 || interactionNumber >=interactions.Length) return;
 
+        Debug.Log("rah");
             if(_activeInteraction.dialogue != null)
             {
+            Debug.Log("will done?");
                 _activeInteraction.dialogue.SetActive(false);
             }
 
             _activeInteraction = interactions[interactionNumber];
             _activeInteraction.dialogue.SetActive(true);
+
+        Debug.Log("will done it again!");
             NextMessage();
             
         }

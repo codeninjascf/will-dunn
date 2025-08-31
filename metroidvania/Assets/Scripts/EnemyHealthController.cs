@@ -17,10 +17,10 @@ public class EnemyHealthController : MonoBehaviour
         {
             if(deathEffect != null)
             {
-                Instantiate(deathEffect,transform.position, transform.rotation);
+                Destroy(Instantiate(deathEffect,transform.position, transform.rotation),1f);
             }
             Destroy(gameObject);
-            Destroy(deathEffect);
+            
         }
     }
 }
