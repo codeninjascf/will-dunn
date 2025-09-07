@@ -23,6 +23,7 @@ public class BossHealthController : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        print("RAHAAHAHAHAHAHAHAHAHAHAHAHAH");
         currentHealth -= damage;
         if (currentHealth <= 0)
         {

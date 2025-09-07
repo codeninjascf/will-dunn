@@ -86610,6 +86610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Level3
+  Spawnpoint: {fileID: 39842902}
 --- !u!61 &1444829021
 BoxCollider2D:
   m_ObjectHideFlags: 0

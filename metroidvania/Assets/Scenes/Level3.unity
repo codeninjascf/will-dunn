@@ -306,6 +306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: BossLevel
+  Spawnpoint: {fileID: 39842902}
 --- !u!61 &38879188
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -7,33 +7,29 @@ public class SceneTransition : MonoBehaviour
 {
     public string sceneToLoad;
     private int damageAmount = 10000;
+    public float XCoordSpawn;
+    public float YCoordSpawn;
 
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            SceneManager.LoadScene(sceneToLoad);
-            DealDamage();
-        }
-    }
 
     public void DealDamage()
     {
         PlayerHealthController.instance.DamagePlayer(damageAmount);
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.gameObject.tag == "Player")
+        if (collision.CompareTag("Player"))
         {
             DealDamage();
+            SceneManager.LoadScene(sceneToLoad);
+            DealDamage();
+            collision.gameObject.transform.position = new Vector3(XCoordSpawn, YCoordSpawn, transform.position.z);
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
             DealDamage();
         }
