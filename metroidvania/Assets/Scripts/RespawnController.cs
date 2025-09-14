@@ -16,6 +16,7 @@ public class RespawnController : MonoBehaviour
         }
         else
         {
+            instance.respawnPoint = respawnPoint;
             Destroy(gameObject);
         }
     }

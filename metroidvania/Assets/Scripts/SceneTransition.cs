@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class SceneTransition : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class SceneTransition : MonoBehaviour
     private int damageAmount = 10000;
     public float XCoordSpawn;
     public float YCoordSpawn;
+    public GameObject spawnPoint;
 
 
     public void DealDamage()
@@ -19,11 +21,12 @@ public class SceneTransition : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
-        {
+        {           
             DealDamage();
             SceneManager.LoadScene(sceneToLoad);
+            PlayerHealthController.instance.gameObject.transform.position = new Vector3(PlayerHealthController.instance.gameObject.transform.position.x, PlayerHealthController.instance.gameObject.transform.position.y, PlayerHealthController.instance.gameObject.transform.position.z);
             DealDamage();
-            collision.gameObject.transform.position = new Vector3(XCoordSpawn, YCoordSpawn, transform.position.z);
+                            
         }
     }
 
@@ -35,3 +38,4 @@ public class SceneTransition : MonoBehaviour
         }
     }
 }
+

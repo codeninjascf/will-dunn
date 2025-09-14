@@ -151,7 +151,7 @@ Transform:
   m_GameObject: {fileID: 39842902}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 132.7, y: -14, z: 0}
+  m_LocalPosition: {x: 133.3, y: -18.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -552,6 +552,7 @@ MonoBehaviour:
   sceneToLoad: Level1
   XCoordSpawn: -13.7706
   YCoordSpawn: -8.359991
+  spawnPoint: {fileID: 7350960593582371486, guid: e86261eaf5f829842b1d83518d60d758, type: 3}
 --- !u!61 &202380457
 BoxCollider2D:
   m_ObjectHideFlags: 0
