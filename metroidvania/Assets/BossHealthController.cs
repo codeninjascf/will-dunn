@@ -15,26 +15,37 @@ public class BossHealthController : MonoBehaviour
     public Slider bossHealthSlider;
     public int currentHealth = 100;
     public BossBattle boss;
+    public bool isAlive;
     void Start()
     {
         bossHealthSlider.maxValue = currentHealth;
         bossHealthSlider.value = currentHealth;
     }
 
+    public void Update()
+    {
+        if(currentHealth > 0)
+        {
+            isAlive = true;
+        }
+        else
+        {
+            isAlive = false;
+        }
+    }
+
     public void TakeDamage(int damage)
     {
-        print("RAHAAHAHAHAHAHAHAHAHAHAHAHAH");
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
             currentHealth = 0;
-            boss.EndBattle(); 
+            boss.EndBattle();
+            
         }
+        
+
         bossHealthSlider.value = currentHealth;
     }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }
