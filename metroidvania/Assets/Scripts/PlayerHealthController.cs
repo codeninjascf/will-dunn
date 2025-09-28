@@ -7,7 +7,9 @@ public class PlayerHealthController : MonoBehaviour
 
     public static PlayerHealthController instance;
     public GameObject PlayerDeath;
-
+    public float damageCooldown = 1f;
+    public int poisonAmount = 1;
+    public int poisonDamage = 1;
     private void Awake()
     {
         if (instance == null)
@@ -33,11 +35,13 @@ public class PlayerHealthController : MonoBehaviour
     {
         currentHealth = maxHealth;
         UIController.instance.UpdateHealth(currentHealth,maxHealth);
+        StartCoroutine(TickDamage());
     }
 
     public void FillHealth()
     {
         currentHealth = maxHealth;
+        poisonAmount = 0;
         UIController.instance.UpdateHealth(currentHealth, maxHealth);
     }
 
@@ -70,6 +74,25 @@ public class PlayerHealthController : MonoBehaviour
         }
     }
 
+
+    public IEnumerator TickDamage()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(0.5f);
+            if (poisonAmount > poisonDamage)
+            {
+                poisonAmount -= poisonDamage;
+                DamagePlayer(poisonDamage);
+            } 
+            else if (poisonAmount > 0)
+            {
+                poisonAmount = 0;
+                DamagePlayer(poisonDamage);
+            }
+            print("tick");
+        }
+    }
     public void DamagePlayer(int damageAmount)
     {
         if(invincCounter == 0)
@@ -87,6 +110,14 @@ public class PlayerHealthController : MonoBehaviour
         }
     }
 
+    public void DamagePlayerOverTime(int damageAmount)
+    {
+        if (poisonAmount < damageAmount)
+        {
+            poisonAmount = damageAmount;
+        }
+    }
+
     public void HealPlayer(int healAmount)
     {
         currentHealth += healAmount;
@@ -95,7 +126,7 @@ public class PlayerHealthController : MonoBehaviour
         {
             currentHealth = maxHealth;
         }
-
+        poisonAmount = 0;
         UIController.instance.UpdateHealth(currentHealth, maxHealth);
     }
 }

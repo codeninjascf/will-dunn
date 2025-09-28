@@ -8,13 +8,13 @@ public class BossAttacks : MonoBehaviour
 {
     public GameObject[] Attacks; 
 
-    public GameObject currentAttack;
-    public int index;
+    private GameObject currentAttack;
+    private int index;
     public BossHealthController bossHealth;
 
     public IEnumerator chooseAttack()
     {
-        while(bossHealth.isAlive);
+        while(bossHealth.isAlive)
         {
             index = UnityEngine.Random.Range(0, Attacks.Length);
 
@@ -25,5 +25,10 @@ public class BossAttacks : MonoBehaviour
 
             currentAttack.SetActive(false);
         }
+    }
+
+    public void Start()
+    {
+        StartCoroutine(chooseAttack());
     }
 }

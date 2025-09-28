@@ -4,38 +4,8 @@ using UnityEngine;
 
 public class DamagePlayerOverTime : MonoBehaviour
 {
-    public int damageAmount = 1;
-    public bool destroyOnDamage;
-    public GameObject destroyEffect;
-
-    public void DealDamage()
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        PlayerHealthController.instance.DamagePlayer(damageAmount);
-
-        if (destroyOnDamage)
-        {
-            if (destroyEffect != null)
-            {
-                Instantiate(destroyEffect, transform.position, transform.rotation);
-            }
-            Destroy(gameObject);
-            Destroy(destroyEffect);
-        }
-
-    }
-
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            DealDamage();
-        }
-    }
-
-
-
-    void Update()
-    {
-
+        PlayerHealthController.instance.DamagePlayerOverTime(1);
     }
 }
