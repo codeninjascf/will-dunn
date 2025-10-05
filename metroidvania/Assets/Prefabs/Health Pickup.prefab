@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4976247977714468577}
   - component: {fileID: 7209212253576691863}
   - component: {fileID: 265088921853044206}
+  - component: {fileID: -4764809970661693994}
   m_Layer: 0
   m_Name: Health Pickup
   m_TagString: Untagged
@@ -25,13 +26,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9222977581150591924}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 11.081466, y: 5.199727, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7209212253576691863
 SpriteRenderer:
@@ -120,3 +121,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &-4764809970661693994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9222977581150591924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bc9767d2be0d7941b7d922f66942484, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HealthAmount: 12
+  pickupEffect: {fileID: 0}

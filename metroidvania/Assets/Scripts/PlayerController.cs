@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour
     public GameObject bomb;
 
     private PlayerAbilityTracker abilities;
+    public LevelCompleteMenu levelCompleteMenu;
 
     private void Start()
     {
@@ -183,6 +184,14 @@ public class PlayerController : MonoBehaviour
         Destroy(image.gameObject,afterImageLifetime);
 
         afterImageCounter = timeBetweenAfterImages;
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Goal")
+        {
+            levelCompleteMenu.ReachedGoal();
+        }
     }
 
 }

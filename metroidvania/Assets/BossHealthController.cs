@@ -15,25 +15,12 @@ public class BossHealthController : MonoBehaviour
     public Slider bossHealthSlider;
     public int currentHealth = 100;
     public BossBattle boss;
-    public bool isAlive;
+    public bool isAlive { get { return currentHealth > 0; } }
     void Start()
     {
         bossHealthSlider.maxValue = currentHealth;
         bossHealthSlider.value = currentHealth;
     }
-
-    public void Update()
-    {
-        if(currentHealth > 0)
-        {
-            isAlive = true;
-        }
-        else
-        {
-            isAlive = false;
-        }
-    }
-
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;

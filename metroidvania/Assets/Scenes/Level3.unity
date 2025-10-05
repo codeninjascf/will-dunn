@@ -306,7 +306,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: BossLevel
-  Spawnpoint: {fileID: 39842902}
+  XCoordSpawn: 0
+  YCoordSpawn: 0
+  spawnPoint: {fileID: 0}
 --- !u!61 &38879188
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -500,6 +502,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerDeath: {fileID: 1365498103846281857, guid: c733b533b7d24334088bdfc17759dea5, type: 3}
+  damageCooldown: 1
+  poisonAmount: 1
+  poisonDamage: 1
   maxHealth: 15
   currentHealth: 0
   invincLength: 1.5
@@ -9008,67 +9013,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1001 &279303068
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 967459717336663724, guid: af837f873736e964f80b0e8fa385e346, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6715605995661985733, guid: af837f873736e964f80b0e8fa385e346, type: 3}
-      propertyPath: m_Name
-      value: Enemy Flyer (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 9090827888276960313, guid: af837f873736e964f80b0e8fa385e346, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -49.648365
-      objectReference: {fileID: 0}
-    - target: {fileID: 9090827888276960313, guid: af837f873736e964f80b0e8fa385e346, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 19.41
-      objectReference: {fileID: 0}
-    - target: {fileID: 9090827888276960313, guid: af837f873736e964f80b0e8fa385e346, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.12049928
-      objectReference: {fileID: 0}
-    - target: {fileID: 9090827888276960313, guid: af837f873736e964f80b0e8fa385e346, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9090827888276960313, guid: af837f873736e964f80b0e8fa385e346, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9090827888276960313, guid: af837f873736e964f80b0e8fa385e346, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9090827888276960313, guid: af837f873736e964f80b0e8fa385e346, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9090827888276960313, guid: af837f873736e964f80b0e8fa385e346, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9090827888276960313, guid: af837f873736e964f80b0e8fa385e346, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9090827888276960313, guid: af837f873736e964f80b0e8fa385e346, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: af837f873736e964f80b0e8fa385e346, type: 3}
 --- !u!1001 &350325114
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9580,6 +9524,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4649844019891126502, guid: af837f873736e964f80b0e8fa385e346, type: 3}
+      propertyPath: rangeToStartChase
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6715605995661985733, guid: af837f873736e964f80b0e8fa385e346, type: 3}
       propertyPath: m_Name
       value: Enemy Flyer (3)
@@ -10196,7 +10144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9090827888276960313, guid: af837f873736e964f80b0e8fa385e346, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 19.17
+      value: 19.52
       objectReference: {fileID: 0}
     - target: {fileID: 9090827888276960313, guid: af837f873736e964f80b0e8fa385e346, type: 3}
       propertyPath: m_LocalPosition.z
@@ -11081,7 +11029,6 @@ SceneRoots:
   - {fileID: 1332167293}
   - {fileID: 2020132411}
   - {fileID: 1153109267}
-  - {fileID: 279303068}
   - {fileID: 1355116814}
   - {fileID: 880270120}
   - {fileID: 887731939}

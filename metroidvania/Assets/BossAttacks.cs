@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.PlasticSCM.Editor.WebApi;
@@ -6,17 +5,26 @@ using UnityEngine;
 
 public class BossAttacks : MonoBehaviour
 {
-    public GameObject[] Attacks; 
+
+    public GameObject healthPickup;
+
+    public GameObject[] Attacks;
+    public GameObject[] SpawnPoints;
+    public GameObject[] healthPoints;
 
     private GameObject currentAttack;
-    private int index;
+    private GameObject currentSpawn;
+    private GameObject currentPickup;
     public BossHealthController bossHealth;
+
+    public float spawnCooldown = 7f;
+    public float pickupCooldown = 10f;
 
     public IEnumerator chooseAttack()
     {
         while(bossHealth.isAlive)
         {
-            index = UnityEngine.Random.Range(0, Attacks.Length);
+            int index = Random.Range(0, Attacks.Length);
 
             currentAttack = Attacks[index];
             currentAttack.SetActive(true);
@@ -27,8 +35,40 @@ public class BossAttacks : MonoBehaviour
         }
     }
 
+    public IEnumerator chooseSpawn()
+    {
+        while (bossHealth.isAlive)
+        {
+            int index = Random.Range(0, SpawnPoints.Length);
+
+            currentSpawn = SpawnPoints[index];
+            
+            transform.position = currentSpawn.transform.position;
+
+            yield return new WaitForSeconds(spawnCooldown);
+        }
+    }
+
+    public IEnumerator choosePickup()
+    {
+        while (bossHealth.isAlive)
+        {
+            int index = Random.Range(0, healthPoints.Length);
+
+            currentPickup = healthPoints[index];
+
+            yield return new WaitForSeconds(pickupCooldown);
+
+            Instantiate(healthPickup, currentPickup.transform.position, Quaternion.identity);
+
+            
+        }
+    }
+
     public void Start()
     {
         StartCoroutine(chooseAttack());
+        StartCoroutine(chooseSpawn());
+        StartCoroutine(choosePickup());
     }
 }
