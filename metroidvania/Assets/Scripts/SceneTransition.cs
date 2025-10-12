@@ -11,6 +11,9 @@ public class SceneTransition : MonoBehaviour
     public float XCoordSpawn;
     public float YCoordSpawn;
     public GameObject spawnPoint;
+    
+
+    public LevelCompleteMenu LevelCompleteMenu;
 
 
     public void DealDamage()
@@ -20,13 +23,18 @@ public class SceneTransition : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
-        {           
-            DealDamage();
-            SceneManager.LoadScene(sceneToLoad);
-            PlayerHealthController.instance.gameObject.transform.position = new Vector3(PlayerHealthController.instance.gameObject.transform.position.x, PlayerHealthController.instance.gameObject.transform.position.y, PlayerHealthController.instance.gameObject.transform.position.z);
-            DealDamage();
-                            
+        if (LevelCompleteMenu.nextScene == true)
+        {
+            if (collision.CompareTag("Player"))
+            {
+                DealDamage();
+                SceneManager.LoadScene(sceneToLoad);
+                PlayerHealthController.instance.gameObject.transform.position = new Vector3(PlayerHealthController.instance.gameObject.transform.position.x, PlayerHealthController.instance.gameObject.transform.position.y, PlayerHealthController.instance.gameObject.transform.position.z);
+                DealDamage();
+                LevelCompleteMenu.ReachedGoal();
+                LevelCompleteMenu.nextScene = false;
+
+            }
         }
     }
 
