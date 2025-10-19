@@ -23,7 +23,7 @@ public class SceneTransition : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (LevelCompleteMenu.nextScene == true)
+        if (LevelCompleteMenu.nextScene == false)
         {
             if (collision.CompareTag("Player"))
             {
